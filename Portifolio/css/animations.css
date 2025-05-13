@@ -1,0 +1,117 @@
+/* 
+  Animation Styles
+*/
+
+/* Cursor Animation */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(0, 119, 255, 0.5);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-highest);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  mix-blend-mode: difference;
+  display: none;
+}
+
+.cursor.active {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 119, 255, 0.3);
+}
+
+/* Only show custom cursor on desktop */
+@media (min-width: 992px) {
+  body {
+    cursor: none;
+  }
+  
+  .cursor {
+    display: block;
+  }
+  
+  a, button, .skill-item, .project-card, .social-link, .theme-toggle, .filter-btn {
+    cursor: none;
+  }
+}
+
+/* General Animations */
+.animate-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-in.appear {
+  animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.8s;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animation for skill progress bars */
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress);
+  }
+}
+
+/* Project Filter Animation */
+.projects-grid .project-card {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.projects-grid .project-card.hide {
+  display: none;
+}

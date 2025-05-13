@@ -1,0 +1,249 @@
+/* 
+  Main CSS file for the portfolio website
+  Contains global styles, variables, and utility classes
+*/
+
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-primary: #0077FF;
+  --color-primary-light: #3395ff;
+  --color-primary-dark: #0055cc;
+  
+  --color-secondary: #222222;
+  --color-secondary-light: #444444;
+  --color-secondary-dark: #111111;
+  
+  --color-accent: #FF3A5E;
+  --color-accent-light: #ff6c87;
+  --color-accent-dark: #cc2e4b;
+  
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  
+  --color-gray-100: #f8f9fa;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #6c757d;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+  
+  --color-white: #ffffff;
+  --color-black: #000000;
+  
+  /* Background & Text Colors (Light Mode) */
+  --color-bg: var(--color-white);
+  --color-bg-alt: var(--color-gray-100);
+  --color-text: var(--color-gray-900);
+  --color-text-light: var(--color-gray-700);
+  --color-border: var(--color-gray-300);
+  
+  /* Spacing */
+  --space-unit: 8px;
+  --space-xs: calc(var(--space-unit) * 0.5);  /* 4px */
+  --space-sm: var(--space-unit);              /* 8px */
+  --space-md: calc(var(--space-unit) * 2);    /* 16px */
+  --space-lg: calc(var(--space-unit) * 3);    /* 24px */
+  --space-xl: calc(var(--space-unit) * 4);    /* 32px */
+  --space-xxl: calc(var(--space-unit) * 6);   /* 48px */
+  --space-xxxl: calc(var(--space-unit) * 8);  /* 64px */
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-size-base: 16px;
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-md: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-xxl: 1.5rem;    /* 24px */
+  --font-size-xxxl: 2rem;     /* 32px */
+  --font-size-xxxxl: 2.5rem;  /* 40px */
+  --font-size-display: 3rem;  /* 48px */
+  
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-loose: 1.8;
+  
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index */
+  --z-below: -1;
+  --z-normal: 1;
+  --z-above: 10;
+  --z-high: 100;
+  --z-highest: 1000;
+  
+  /* Container Width */
+  --container-max-width: 1200px;
+  --container-padding: var(--space-md);
+}
+
+/* Dark Mode */
+.dark-mode {
+  --color-bg: var(--color-gray-900);
+  --color-bg-alt: var(--color-gray-800);
+  --color-text: var(--color-white);
+  --color-text-light: var(--color-gray-300);
+  --color-border: var(--color-gray-700);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-base), color var(--transition-base);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--space-xxxl) 0;
+}
+
+.section-header {
+  max-width: 800px;
+  margin: 0 auto var(--space-xxl);
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.section-header p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-md);
+  border: none;
+  outline: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Tag Styles */
+.tag {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+  margin-right: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.dark-mode .tag {
+  background-color: var(--color-gray-700);
+  color: var(--color-gray-200);
+}
